@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+    <link href="{% static 'css/registro.css' %}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="formulario">
+        <h1>REGISTRARME</h1>
+        <form method="post">
+          {% csrf_token %} {{ form.username }} {{ form.email }} {{ form.password }} {{ form.password2 }}
+
+          <label for="terms"
+            ><input type="checkbox" id="terms" name="terms" required />Acepto los Términos y
+            condiciones</label
+          >
+          <button type="submit" id="btnReg">Registrate</button>
+          <button type="button" id="btnRegGoogle">Registrarse con Google</button>
+        </form>
+        <p>Términos y Condiciones de uso - Política de Privacidad</p>
+        {% if form.non_field_errors %} {% for error in form.non_field_errors %}
+        <p style="color: red">{{ error }}</p>
+        {% endfor %} {% endif %} {% for field in form %} {% for error in field.errors %}
+        <p style="color: red">{{ error }}</p>
+        {% endfor %} {% endfor %}
+      </div>
+    </div>
+
+    <!--<div class="container">
+    <div class="formulario">
+        <h1>REGISTRARME</h1>
+        <form method="post" action="{% url 'registro' %}">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="username" placeholder="Nombre" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="password2" placeholder="Repeat Password" required>
+            <label for="terms"><input type="checkbox" id="terms" name="terms" required>Acepto los Términos y condiciones</label>
+            <button type="submit" id="btnReg">Registrate</button>
+            <button type="button" id="btnRegGoogle">Registrarse con Google</button>
+        </form>
+        <p>Términos y Condiciones de uso - Política de Privacidad</p>
+        {% if error %}
+            <p style="color:red">{{ error }}</p>
+        {% endif %}
+    </div>
+</div>-->
+  </body>
+</html>

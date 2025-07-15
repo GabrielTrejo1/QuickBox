@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% if form.instance.pk %}Editar Pedido{% else %}Agregar Pedido{% endif %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/crear_ruta.css' %}" />
+  </head>
+
+  <body>
+    {% include "includes/navbar.html" %}
+
+    <main>
+      <div class="container" style="height: 200px;">
+        <h2 id="titulo">
+          {% if form.instance.pk %}Editar Pedido{% else %}Agregar Pedido{% endif %}
+        </h2>
+        {% if form.errors %}
+        <div>
+          <strong>La dirección es inválida.</strong>
+        </div>
+        {% endif %}
+
+        <form class="flexear" method="post" novalidate>
+          {% csrf_token %} {% for field in form %}
+          <div
+            class="flexear"
+            {%
+            if
+            field.name="codigo_postal"
+            %}style="display: none;"
+            {%
+            endif
+            %}>
+            {% if field.name == "direccion" %}
+            <label for="{{ field.id_for_label }}">Dirección:</label>
+            {% endif %}
+            <div style="width: 240px;">
+              {% if field.name == "direccion" %}
+              <input
+                type="text"
+                name="direccion"
+                id="direccion"
+                placeholder="Ej: Av. Siempre Viva 742"
+                value="{{ field.value|default:'' }}" />
+              {% elif field.name == "codigo_postal" %}
+              <input
+                type="hidden"
+                name="codigo_postal"
+                id="codigo_postal"
+                readonly
+                value="{{ field.value|default:'' }}" />
+              {% else %} {{ field }} {% endif %} {% if field.errors %}
+              <div>{{ field.errors }}</div>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+
+          <button type="submit" id="boton">
+            {% if form.instance.pk %}Actualizar Pedido{% else %}Agregar Pedido{% endif %}
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <!-- Scripts de Google y Bootstrap -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3P7JedZwrkvQUVjTXgdBEm7Nx4YwpFvE&libraries=places"></script>
+    <script>
+      function initAutocomplete() {
+        const input = document.getElementById("direccion");
+        const autocomplete = new google.maps.places.Autocomplete(input, {
+          types: ["geocode"],
+          componentRestrictions: { country: "ar" },
+        });
+
+        autocomplete.addListener("place_changed", function () {
+          const place = autocomplete.getPlace();
+          if (!place.geometry) {
+            alert("Dirección inválida. Por favor, seleccioná una opción de la lista.");
+            return;
+          }
+
+          let postalCode = "";
+          for (const component of place.address_components) {
+            if (component.types.includes("postal_code")) {
+              postalCode = component.long_name;
+              break;
+            }
+          }
+          document.getElementById("codigo_postal").value = postalCode || "";
+        });
+      }
+
+      google.maps.event.addDomListener(window, "load", initAutocomplete);
+    </script>
+  </body>
+</html>

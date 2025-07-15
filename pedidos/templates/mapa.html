@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa</title>
+    <link rel="stylesheet" href="{% static 'css/mapa.css' %}" />
+  </head>
+  <body>
+    <div class="cont_pri">
+      <div class="cont_sec">
+        <div class="mapa"><iframe class="imapa" src="{{ mapa_url }}" frameborder="0"></iframe></div>
+
+        <details
+          style="
+            margin: 0px 20px 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgb(255, 255, 255, 0.2);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+              'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          ">
+          <summary style="cursor: pointer; font-weight: bold">Información de la ruta</summary>
+          <h3>Ruta Original (sin optimizar)</h3>
+          <ul>
+            <li><strong>Distancia total:</strong> {{ distancia_original }} km</li>
+            <li><strong>Duración estimada:</strong> {{ duracion_original }} minutos</li>
+            <li><strong>Direcciones:</strong></li>
+            <ol>
+              {% for direccion in ruta_original %}
+              <li>{{ direccion }}</li>
+              {% endfor %}
+            </ol>
+          </ul>
+
+          <hr />
+
+          <h3>Ruta Optimizada</h3>
+          <ul>
+            <li><strong>Distancia total:</strong> {{ distancia_km }} km</li>
+            <li><strong>Duración estimada:</strong> {{ duracion_min }} minutos</li>
+            <li><strong>Direcciones en orden optimizado:</strong></li>
+            <ol>
+              {% for direccion in ruta_optima %}
+              <li>{{ direccion }}</li>
+              {% endfor %}
+            </ol>
+          </ul>
+
+          <hr />
+
+          <h4>Mejoras respecto a la ruta original</h4>
+          <ul>
+            <li><strong>Reducción de distancia:</strong> {{ mejora_distancia }}%</li>
+            <li><strong>Reducción de duración:</strong> {{ mejora_duracion }}%</li>
+          </ul>
+        </details>
+      </div>
+      <div class="cont_sec">
+        <h1 id="nombre_ruta">Ruta: {{ ruta_select.nombre }}</h1>
+        <form action="" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="id_ruta" value="{{ ruta_select.id_ruta }}" />
+          <input type="hidden" name="inicio_ruta" value="{{ ruta_original.0 }}" />
+          <div class="cont_pedidos">
+            {% for pedido in pedidos_ordenados %}
+            <article class="pedido">
+              <div class="orden"><p class="num">{{ forloop.counter }}</p></div>
+              <div class="direccion"><p>{{ pedido.direccion }}</p></div>
+              <div class="radios">
+                <label class="estado">Estado</label><br />
+                <label
+                  for="Pendiente_{{ pedido.id_pedido }}"
+                  style="
+                    color: #ffa800;
+                    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                  ">
+                  {% if pedido.estado == "Pendiente" %}
+                  <input
+                    class="form-check-input_p"
+                    value="Pendiente"
+                    type="radio"
+                    name="estado_{{ pedido.id_pedido }}"
+                    id="Pendiente_{{ pedido.id_pedido }}"
+                    checked />
+                  {% else %}
+                  <input
+                    class="form-check-input_p"
+                    value="Pendiente"
+                    type="radio"
+                    name="estado_{{ pedido.id_pedido }}"
+                    id="Pendiente_{{ pedido.id_pedido }}" />
+                  {% endif %} <b>Pendiente</b> </label
+                ><br />
+                <label
+                  for="Entregado_{{ pedido.id_pedido }}"
+                  style="
+                    color: #00db8e;
+                    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                      'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                  ">
+                  {% if pedido.estado == "Entregado" %}
+                  <input
+                    class="form-check-input_e"
+                    value="Entregado"
+                    type="radio"
+                    name="estado_{{ pedido.id_pedido }}"
+                    id="Entregado_{{ pedido.id_pedido }}"
+                    checked />
+                  {% else %}
+                  <input
+                    class="form-check-input_e"
+                    value="Entregado"
+                    type="radio"
+                    name="estado_{{ pedido.id_pedido }}"
+                    id="Entregado_{{ pedido.id_pedido }}" />
+                  {% endif %} <b>Entregado</b>
+                </label>
+              </div>
+            </article>
+            {% endfor %}
+          </div>
+          <div class="cont_btn">
+            <div style="height: 70px">
+              {% if messages %} {% for message in messages %}
+              <p
+                class="{{ message.tags }}"
+                style="
+                  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                  background-color: rgb(255, 255, 255, 0.2);
+                  border: 1px solid #ccc;
+                  padding: 5px;
+                  margin: none;
+                  border-radius: 5px;
+                  font-size: 15px;
+                ">
+                ℹ️ {{ message }}
+              </p>
+              {% endfor %} {% endif %}
+            </div>
+            <input id="guardar" class="btn" type="submit" name="guardar" value="Guardar" />
+            <a href="{% url 'ruta_list' %}" class="btn" id="cancelar">Volver</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+body {
+    background-color: #FFA800;
+    background-image: url('../img/fondo1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px; /* espacio interno en pantallas pequeñas */
+    box-sizing: border-box;
+}
+
+/* Contenedor del formulario */
+.container {
+    width: 100%;
+    max-width: 450px;
+    background-color: white;
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px rgb(74, 23, 23);
+    padding: 30px 20px;
+    box-sizing: border-box;
+
+    /* Ajuste dinámico de alto */
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+/* Formulario */
+.formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario h1 {
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Roboto';
+    margin-bottom: 25px;
+}
+
+.formulario p {
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+/* Campos del formulario */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form input, button {
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #FFA800;
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form .input, button {
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #FFA800;
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Botones */
+#btnReg {
+    background-color: #B7B0B0;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#btnRegGoogle {
+    background-color: #FFA800;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#btnReg:hover, #btnRegGoogle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #FFA800;
+}
+
+#terms {
+    cursor: pointer;
+}
+
+label {
+    font-family: 'Roboto';
+    font-size: 15px;
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .formulario h1 {
+        font-size: 24px;
+    }
+
+    form input,
+    button {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle Ruta</title>
+    <link rel="stylesheet" href="{% static 'css/mapa.css' %}" />
+  </head>
+  <body>
+    <div class="cont_pri">
+      <div class="cont_sec">
+        <div class="mapa">
+          <iframe class="imapa" src="{{ mapa_url }}" frameborder="0"></iframe>
+        </div>
+
+        <details
+          style="
+            margin: 0px 20px 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgb(255, 255, 255, 0.2);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+              'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          ">
+          <summary style="cursor: pointer; font-weight: bold">Información de la ruta</summary>
+          <h3>Ruta Original (sin optimizar)</h3>
+          <ul>
+            <li><strong>Distancia total:</strong> {{ distancia_original }} km</li>
+            <li><strong>Duración estimada:</strong> {{ duracion_original }} minutos</li>
+            <li><strong>Direcciones:</strong></li>
+            <ol>
+              {% for direccion in ruta_original %}
+              <li>{{ direccion }}</li>
+              {% endfor %}
+            </ol>
+          </ul>
+
+          <hr />
+
+          <h3>Ruta Optimizada</h3>
+          <ul>
+            <li><strong>Distancia total:</strong> {{ distancia_km }} km</li>
+            <li><strong>Duración estimada:</strong> {{ duracion_min }} minutos</li>
+            <li><strong>Direcciones en orden optimizado:</strong></li>
+            <ol>
+              {% for direccion in ruta_optima %}
+              <li>{{ direccion }}</li>
+              {% endfor %}
+            </ol>
+          </ul>
+
+          <hr />
+
+          <h4>Mejoras respecto a la ruta original</h4>
+          <ul>
+            <li><strong>Reducción de distancia:</strong> {{ mejora_distancia }}%</li>
+            <li><strong>Reducción de duración:</strong> {{ mejora_duracion }}%</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="cont_sec">
+        <h1 id="nombre_ruta">Ruta: {{ ruta_select.nombre }}</h1>
+        
+        <div class="cont_pedidos">
+          {% for pedido in pedidos_ordenados %}
+          <article class="pedido">
+            <div class="orden">
+              <p class="num">{{ forloop.counter }}</p>
+            </div>
+            <div class="direccion">
+              <p>{{ pedido.direccion }}</p>
+            </div>
+            <div class="estado_pedido" style="font-weight:bold; margin-top: 5px;">
+              Estado: 
+              {% if pedido.estado == "Pendiente" %}
+                <span style="color: #ffa800;">Pendiente</span>
+              {% elif pedido.estado == "Entregado" %}
+                <span style="color: #00db8e;">Entregado</span>
+              {% else %}
+                <span>{{ pedido.estado }}</span>
+              {% endif %}
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+
+        <div class="cont_btn" style="margin-top: 20px;">
+          <a href="{% url 'ruta_list' %}" class="btn" id="cancelar">Volver</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

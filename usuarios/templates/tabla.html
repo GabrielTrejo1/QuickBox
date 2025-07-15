@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Datos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    {% include "includes/navbar.html" %}
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Tabla de Datos</h2>
+
+        <div class="card">
+            <div class="card-header">
+                Lista de Usuarios
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>
+                                <a href="{% url 'editar_usuario' user.id %}" class="btn btn-warning btn-sm">Editar</a>
+                                <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmDeleteModal" data-user-id="{{ user.id }}">Eliminar</a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="4" class="text-center">No hay usuarios disponibles.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{% url 'registro' %}" class="btn btn-primary mt-3">Agregar Nuevo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación para eliminar usuario -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar Eliminación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas eliminar este usuario?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <form id="deleteForm" action="" method="POST" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Mostrar el modal con la URL correcta para eliminar
+        $('#confirmDeleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);  // Botón que abre el modal
+            var userId = button.data('user-id');  // Obtiene el ID del usuario
+            var url = '/eliminar_usuario/' + userId + '/';  // Construye la URL de eliminación
+            var form = $('#deleteForm');  // Obtiene el formulario dentro del modal
+            form.attr('action', url);  // Establece la acción del formulario con la URL de eliminación
+        });
+
+        // Maneja la eliminación usando AJAX
+        $('#deleteForm').submit(function (e) {
+            e.preventDefault();  // Evita el envío normal del formulario
+            var form = $(this);
+            var url = form.attr('action');
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(),
+                success: function (response) {
+                    // Cerrar el modal
+                    $('#confirmDeleteModal').modal('hide');
+                    // Elimina la fila de la tabla de usuarios
+                    $('a[data-user-id="' + response.user_id + '"]').closest('tr').remove();
+                },
+                error: function () {
+                    alert('Hubo un error al eliminar el usuario.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

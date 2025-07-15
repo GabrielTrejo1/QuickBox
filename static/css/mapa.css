@@ -1,0 +1,202 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffa800;
+  background-image: url("../img/fondo1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.cont_pri {
+  background-color: transparent;
+  width: 100%;
+  height: 650px;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
+
+.cont_sec {
+  background-color: transparent;
+  /*border: 1px solid black;*/
+  width: 100%;
+  height: 100%;
+}
+
+.mapa {
+  width: 90%;
+  height: 90%;
+  margin: 10px auto 10px;
+  background-color: transparent;
+  border: 5px solid #ffa800;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+
+.imapa {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+#nombre_ruta {
+  color: white;
+  text-align: center;
+  margin: 0px;
+  margin-top: 15px;
+  font-family: "Roboto", sans-serif;
+  text-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+
+form {
+  width: 100%;
+  height: 600px;
+}
+
+.cont_pedidos {
+  width: 95%;
+  height: 80vh;
+  margin: 5px auto;
+  background-color: transparent;
+  /*border: 1px solid black;*/
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.cont_pedidos::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.pedido {
+  background-color: #dfe0df;
+  width: 95%;
+  height: 100px;
+  margin: 10px auto 0px;
+  border-radius: 10px;
+  display: flex;
+  display: row;
+  gap: 10px;
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+  align-items: center;
+}
+
+.pedido .orden {
+  width: 48px;
+}
+
+.pedido .orden .num {
+  width: 45px;
+  height: 45px;
+  background-color: #5a1c00;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: 0px 5px;
+  font-family: Arial, sans-serif;
+}
+
+.pedido .direccion {
+  display: inline-flex;
+  align-items: center;
+  width: 65%;
+  min-width: 65%;
+  margin: 0 0;
+  font-size: 1.2em;
+  font-family: "Roboto", sans-serif;
+}
+
+.pedido .radios {
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.cont_btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 20px;
+}
+
+.btn {
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 25px;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  transition-duration: 1s;
+  color: #bfbcb5;
+}
+
+#guardar {
+  background-color: #ffa800;
+  border: 3px solid #bfbcb5;
+}
+
+#cancelar {
+  background-color: #ffa800;
+  margin-right: 30px;
+  text-decoration: none;
+  border: 3px solid #bfbcb5;
+}
+
+#detalles {
+  cursor: pointer;
+}
+
+.form-check-input_p {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: #000 solid 1px;
+  cursor: pointer;
+  appearance: none;
+  margin: 8px 2px 0px 0px;
+}
+
+.form-check-input_p:checked {
+  background-color: #ffa800;
+  border: black solid 1px;
+}
+
+.form-check-input_e {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: #000 solid 1px;
+  cursor: pointer;
+  appearance: none;
+  margin: 8px 2px 0px 0px;
+}
+.form-check-input_e:checked {
+  background-color: #00db8e;
+  border: black solid 1px;
+}
+
+.estado {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva,
+    Verdana, sans-serif;
+}
+
+/* Estilo para celulares (pantallas de menos de 600px de ancho) */
+@media (max-width: 600px) {
+  .cont_pri {
+    flex-direction: column; /* botones uno debajo del otro */
+    align-items: center;
+  }
+}

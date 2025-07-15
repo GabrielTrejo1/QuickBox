@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&display=swap");
+
+:root {
+  --color-naranja: #ffa800;
+  --color-marron: #4a1717;
+  --color-gris: #d3cccc;
+  --altura-nav: 4.2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  user-select: none;
+  font-family: "Roboto", sans-serif;
+  /* font-family: "Encode Sans", sans-serif; */
+  outline: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--altura-nav);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  background-color: var(--color-naranja);
+  color: var(--color-marron) !important;
+  text-transform: uppercase;
+  z-index: 1000;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70%;
+}
+
+#logo img {
+  height: 100%;
+  max-height: 100%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a,
+nav button {
+  color: var(--color-marron);
+  text-decoration: none !important;
+  margin-left: 28px;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+nav button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--color-marron);
+  text-transform: uppercase;
+}
+
+nav a:hover,
+nav,
+button:hover {
+  color: var(--color-marron);
+  text-decoration: none !important;
+}
+
+nav a::after,
+nav button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease-in-out;
+  text-decoration: none !important;
+}
+
+nav a:hover::after,
+nav button:hover::after {
+  width: 100%;
+  text-decoration: none;
+}
+
+main {
+  /* border: 3px solid red; */
+  margin-top: var(--altura-nav);
+  /* height: calc(100vh - var(--altura-nav)); */
+  /* display: flex; */
+  /* flex-direction: column; */
+}

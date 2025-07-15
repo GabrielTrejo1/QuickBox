@@ -1,0 +1,120 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #b7b0b0;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+  align-items: center;
+  max-height: auto;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+}
+
+/*tablas*/
+.table {
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 10px;
+  border: 3px solid #232323;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.table th {
+  background-color: #333;
+  color: #fff;
+  border: none;
+}
+.form-check-input {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: #000 solid 1px;
+  cursor: pointer;
+  appearance: none;
+}
+.form-check-input:checked {
+  background-color: #ffa800;
+  border: black solid 1px;
+}
+.container div {
+  margin-top: 30px;
+  text-align: center;
+}
+.ruta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.textbox {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.pedidos-seleccionados {
+  display: flex;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+/* Botón principal */
+.btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffa800;
+  border-radius: 20px;
+  color: #fff;
+  border: none;
+  margin-top: auto;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #d4881f;
+}
+
+#filtro {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-buscar{
+  border: 0px;
+}

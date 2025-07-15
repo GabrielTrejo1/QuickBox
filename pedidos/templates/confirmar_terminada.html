@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Terminar Ruta</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet" />
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #B7B0B0; 
+  margin: 0;
+  padding: 20px;
+}
+
+/* Contenedor principal */
+.container {
+  align-items: center;
+  max-height: auto;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+</style>
+<body class="d-flex justify-content-center align-items-center" style="height: 100vh">
+    <div class="container mt-5" style="text-align: center">
+    <h1>Todos los pedidos fueron marcados como "Entregados", ¿Desea dar por terminada esta ruta?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id_ruta" value="{{ id_ruta }}">
+        <input type="hidden" name="inicio_ruta" value="{{ inicio_ruta }}">      
+        <button class="btn btn-primary" type="submit" name="confirmar_terminada" value="1">Sí, terminar</button>
+        <button class="btn btn-secondary" type="submit" name="cancelar_terminada" value="1">Cancelar</button>
+    </form>
+    </div>
+</body>
+</html>

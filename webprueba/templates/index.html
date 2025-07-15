@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QUICKBOX - Inicio</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+  </head>
+
+  <body>
+    <main>
+      <section id="section-1">
+        <img id="logo-index" src="{% static 'img/logo2.png' %}" alt="Logo" draggable="false" />
+        <h1>QUICKBOX</h1>
+        <div>
+          <h2 id="slogan">
+            <span>Rápido.</span>
+            <span>Seguro.</span>
+            <span>A tu puerta.</span>
+          </h2>
+        </div>
+        <a href="#section-2" class="scrollButton" draggable="false"
+          ><img src="{% static 'img/flecha-down.png' %}" alt="Bajar" draggable="false"
+        /></a>
+      </section>
+      <section id="section-2">
+        <h1 id="titulo_qb">¡Bienvenido a QuickBox!</h1>
+        <p id="texto-section-2">
+          Tu solución de envíos rápida, segura y directa a tu puerta.<br />
+          Conectamos distancias para que tus paquetes lleguen donde tienen que estar, cuando tienen
+          que estar.
+        </p>
+
+        <a class="btnini" href="{% url 'login' %}">Iniciar Sesión</a>
+        <a class="btnini" href="{% url 'registro' %}">Registrarse</a>
+        <a class="btnini" href="{% url 'contactos' %}">Contacto</a>
+
+        <!---- <div class="contenedor-botones">
+    <button type="submit" class="boton_dani_1">Iniciar Sesión</button>
+    <button class="boton_dani_2">Registrarse</button>
+    </div>
+  -->
+        <a href="#section-1" class="scrollButton" draggable="false"
+          ><img src="{% static 'img/flecha-up.png' %}" alt="Subir" draggable="false"
+        /></a>
+      </section>
+    </main>
+  </body>
+</html>

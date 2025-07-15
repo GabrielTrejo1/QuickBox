@@ -1,0 +1,245 @@
+.desktop-3,
+.desktop-3 * {
+  box-sizing: border-box;
+}
+.desktop-3 {
+  background: #b7b0b0;
+  height: 1024px;
+  position: relative;
+  overflow: hidden;
+}
+.version-loco {
+  border-radius: 27px;
+  opacity: 0.5;
+  width: 1570px;
+  height: 1116px;
+  position: absolute;
+  left: -60px;
+  top: -44px;
+  object-fit: cover;
+  aspect-ratio: 1570/1116;
+}
+.side-view-woman-signing-delivery-paper-1 {
+  opacity: 0.5;
+  width: 1464px;
+  height: 1024px;
+  position: absolute;
+  left: -24px;
+  top: 0px;
+  object-fit: cover;
+  aspect-ratio: 1464/1024;
+}
+.group-1 {
+  position: absolute;
+  inset: 0;
+}
+.formulario-box-login {
+  background: #ffffff;
+  border-radius: 48px;
+  width: 488px;
+  height: 720px;
+  position: absolute;
+  left: 481px;
+  top: 110px;
+}
+.registrarme {
+  color: #3e3f5e;
+  text-align: center;
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  position: absolute;
+  left: 651px;
+  top: 145px;
+}
+.casillero-nombre {
+  background: #ffffff;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: #ffa800;
+  border-width: 1px;
+  width: 170px;
+  height: 55px;
+  position: absolute;
+  left: 551px;
+  top: 277px;
+}
+.casillero-apellido {
+  background: #ffffff;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: #ffa800;
+  border-width: 1px;
+  width: 170px;
+  height: 55px;
+  position: absolute;
+  left: 738px;
+  top: 277px;
+}
+.casillero-password {
+  background: #ffffff;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: #ffa800;
+  border-width: 1px;
+  width: 358px;
+  height: 55px;
+  position: absolute;
+  left: 551px;
+  top: 361px;
+}
+.bot-n-registrate-facebook {
+  background: #ffa800;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 1px;
+  width: 358px;
+  height: 55px;
+  position: absolute;
+  left: 558px;
+  top: 651px;
+}
+.nombre {
+  color: #a0a1bf;
+  text-align: center;
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  position: absolute;
+  left: 566px;
+  top: 294px;
+}
+.apellido {
+  color: #a0a1bf;
+  text-align: center;
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  position: absolute;
+  left: 756px;
+  top: 294px;
+}
+.password {
+  color: #a0a1bf;
+  text-align: center;
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  position: absolute;
+  left: 566px;
+  top: 377px;
+}
+.casillero-password2 {
+  background: #ffffff;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: #ffa800;
+  border-width: 1px;
+  width: 358px;
+  height: 55px;
+  position: absolute;
+  left: 551px;
+  top: 446px;
+}
+.repeat-password {
+  color: #a0a1bf;
+  text-align: center;
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  position: absolute;
+  left: 563px;
+  top: 462px;
+}
+.registrarse-con-google {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  position: absolute;
+  left: 651px;
+  top: 670px;
+}
+.group-2 {
+  width: 358px;
+  height: 55px;
+  position: static;
+}
+.bot-n-registrate {
+  background: #b7b0b0;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: #ffa800;
+  border-width: 1px;
+  width: 358px;
+  height: 55px;
+  position: absolute;
+  left: 558px;
+  top: 578px;
+}
+.registrate {
+  color: #ffffff;
+  text-align: center;
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  position: absolute;
+  left: 697px;
+  top: 595px;
+}
+.label-terminos-y-condiciones {
+  background: #ffffff;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #a0a1bf;
+  border-width: 1px;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 558px;
+  top: 526px;
+}
+.acepto-t-rminos-y-condiciones {
+  color: #3e3f5e;
+  text-align: center;
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  position: absolute;
+  left: 590px;
+  top: 529px;
+}
+.casillero-email {
+  background: #ffffff;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: #ffa800;
+  border-width: 1px;
+  width: 358px;
+  height: 55px;
+  position: absolute;
+  left: 551px;
+  top: 195px;
+}
+.email {
+  color: #a0a1bf;
+  text-align: center;
+  font-family: "Roboto-Bold", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  position: absolute;
+  left: 573px;
+  top: 211px;
+}
+.t-rminos-y-condiciones-de-uso-pol-tica-de-privacidad {
+  color: #18191a;
+  text-align: center;
+  font-family: "Rajdhani-Medium", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  position: absolute;
+  left: 583px;
+  top: 732px;
+}

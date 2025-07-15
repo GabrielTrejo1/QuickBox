@@ -1,0 +1,193 @@
+body {
+  position: relative;
+  background-image: url("../img/index-fondo.jpg"); /* TODO: Renombrar imagen */
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffa80099; /* Color de fondo con opacidad */
+  z-index: -1;
+}
+
+main {
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  height: 100vh; /* Cada sección ocupa 100% del alto de la vista */
+  color: #4a1717;
+}
+
+#section-1 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+#section-2 {
+  color: #4a1717;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 50%;*/
+  padding: 20px;
+  gap: 20px;
+}
+
+#titulo_qb {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 4rem;
+  color: whitesmoke;
+  text-align: center;
+}
+
+#texto-section-2 {
+  font-family: "Roboto", sans-serif; /* Tipo de letra */
+  font-weight: 200;
+  font-size: 20px !important; /* Tamaño del texto */
+  color: #ffffff; /* Color del texto */
+  text-align: center; /* Alineación */
+  line-height: 2;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffa800aa;
+  z-index: -1;
+}
+
+#logo-index {
+  width: 60%;
+  max-width: 330px;
+  height: auto;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 25%));
+}
+
+/* QUICKBOX */
+#section-1 h1 {
+  font-family: "Encode Sans", sans-serif;
+  font-size: 4.4rem;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 30%);
+  background-color: #ffa800;
+  border-radius: 16px;
+  padding: 0.2rem 2rem 0.5rem 2rem;
+}
+
+/* Animación Logo y Slogan */
+#logo-index,
+#section-1 h1 {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeInUp 1.8s forwards;
+  animation-delay: 0.3s;
+}
+
+#slogan {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 40%);
+  text-transform: uppercase;
+}
+
+/* Animación de Rápido. Seguro. A tu puerta. */
+#slogan span {
+  font-family: "Encode Sans", sans-serif;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeInUp 1.1s forwards;
+  /* background-color: #D3CCCC88; */
+  background-color: #ffa800;
+  border-radius: 10px;
+  padding: 0.2rem 0.5rem;
+}
+
+#slogan span:nth-child(1) {
+  animation-delay: 1.5s;
+}
+#slogan span:nth-child(2) {
+  animation-delay: 2.5s;
+}
+#slogan span:nth-child(3) {
+  animation-delay: 3.5s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para el botón de scroll */
+.scrollButton {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  /* background-color: #4A1717; */
+  /* color: white; */
+  /* font-size: 24px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* text-align: center; */
+  /* line-height: 60px; */
+  text-decoration: none;
+  padding: 4px;
+  /* box-shadow: 0 4px 8px rgba(0,0,0,0.3); */
+  transition: background-color 0.3s ease;
+}
+
+.scrollButton img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.scrollButton:hover {
+  background-color: rgb(255, 255, 255, 30%);
+}
+
+.btnini {
+  background-color: #e7e7e7;
+  border: 1px solid #ffa800;
+  color: #333;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.btnini:hover {
+  background-color: #aeaeae;
+}

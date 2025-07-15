@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eliminar</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/pantalla_ruta.css' %}" />
+  </head>
+
+  <body class="d-flex justify-content-center align-items-center" style="height: 100vh">
+    {% include "includes/navbar.html" %}
+
+    <div class="container mt-5" style="text-align: center">
+      {% if tipo_objeto == "pedido" %}
+      <h2>
+        ¿Estás seguro de eliminar el {{ tipo_objeto }} <br />
+        "{{ object.direccion }}"?
+      </h2>
+      {% elif tipo_objeto == "ruta" %}
+      <h2>
+        ¿Estás seguro de eliminar la {{ tipo_objeto }} <br />
+        "{{ object.nombre }}"?
+      </h2>
+      {% endif %}
+      <form method="post">
+        {% csrf_token %} {% if tipo_objeto == "pedido" %}
+        <a href="{% url 'pedido_list' %}" class="btn btn-secondary">Cancelar</a>
+        {% elif tipo_objeto == "ruta" %}
+        <a href="{% url 'ruta_list' %}" class="btn btn-secondary">Cancelar</a>
+        {% endif %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+      </form>
+    </div>
+  </body>
+</html>
