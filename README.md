@@ -78,17 +78,17 @@ Al seleccionar una ruta y un punto de partida:
 
 - **Frontend**: HTML, CSS, JavaScript  
 - **Backend**: Django (Python)  
-- **Base de datos**: PostgreSQL / SQLite  
+- **Base de datos**: MySQL / SQLite  
 - **Mapas y rutas**: Google Maps API  
 - **Autenticación**: Sistema de login por usuario  
-- **Otros**: Bootstrap / Leaflet.js (si aplicara)
+- **Otros**: Bootstrap
 
 ---
 
 ## ⚙️ Instalación y Configuración
 
 1. Cloná el repositorio:  
-   `git clone https://github.com/tu_usuario/quickbox.git && cd quickbox`
+   `git clone https://github.com/GabrielTrejo1/QuickBox && cd quickbox`
 
 2. Creá un entorno virtual:  
    `python -m venv env`
