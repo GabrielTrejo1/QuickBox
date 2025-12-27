@@ -14,10 +14,14 @@ from .forms import PedidoForm, RutaForm
 import googlemaps
 from itertools import permutations
 import urllib.parse
+import os
+from dotenv import load_dotenv
 
-API_KEY = 'AIzaSyC3P7JedZwrkvQUVjTXgdBEm7Nx4YwpFvE'
+# 1. Cargar las variables del archivo .env
+load_dotenv()
 
-
+# 2. Obtener la clave
+api_key = os.getenv("MI_API_KEY")
 # --- PEDIDOS --- #
 
 class PedidoListView(LoginRequiredMixin, ListView):
